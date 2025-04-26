@@ -1,4 +1,6 @@
 import 'package:cafe_app/conts.dart';
+import 'package:cafe_app/pages/cart_page.dart';
+import 'package:cafe_app/pages/shop_page.dart';
 import 'package:flutter/material.dart';
 import 'package:cafe_app/components/bottom_nav_bar.dart';
 
@@ -32,6 +34,7 @@ class _HomePageState extends State<HomePage> {
       backgroundColor: backgroundColor,
       bottomNavigationBar:
           MyBottomNavBar(onTabChange: (index) => navigateBottomBar(index)),
+      body: _pages[_selectedIndex],
     );
   }
 }
