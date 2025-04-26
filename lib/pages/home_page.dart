@@ -1,5 +1,6 @@
 import 'package:cafe_app/conts.dart';
 import 'package:flutter/material.dart';
+import 'package:cafe_app/components/bottom_nav_bar.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -9,10 +10,28 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  //Navigation Bottom Bar
+  int _selectedIndex = 0;
+  void navigateBottomBar(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
+  //pages
+  final List<Widget> _pages = [
+    //shop page
+    ShopPage(),
+    //cart page
+    CartPage(),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: backgroundColor,
+      bottomNavigationBar:
+          MyBottomNavBar(onTabChange: (index) => navigateBottomBar(index)),
     );
   }
 }
